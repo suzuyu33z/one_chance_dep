@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+
+.button-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0.25rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button-link:hover {
+  background-color: #0056b3;
+}
+
+/*footer {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+footer a {
+  flex: 1 !important;
+  text-align: center !important;
+}
+*/
+
+/* カスタムテキストシャドウ */
+.text-shadow {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+
