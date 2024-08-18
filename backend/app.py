@@ -14,7 +14,7 @@ from db_control.connect import engine
 # REST APIでありCRUDを持っている
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
-# セッションに関する設定
+# セッションに関する設定です
 
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
