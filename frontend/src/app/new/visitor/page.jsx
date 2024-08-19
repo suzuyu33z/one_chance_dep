@@ -21,7 +21,9 @@ export default function VisitorRegistration() {
   // useEffectを使って犬種データを取得
   useEffect(() => {
     async function fetchBreeds() {
-      const response = await fetch(process.env.API_ENDPOINT + `/api/breeds`);
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_API_ENDPOINT + `/api/breeds`
+      );
       const breedData = await response.json();
       setBreeds(breedData);
     }
@@ -93,13 +95,16 @@ export default function VisitorRegistration() {
     e.preventDefault();
 
     // ユーザー情報と犬の情報を一度に送信
-    const response = await fetch(process.env.API_ENDPOINT + `/api/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...formData, dogs }), // ユーザー情報と犬情報を含めて送信
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_API_ENDPOINT + `/api/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, dogs }), // ユーザー情報と犬情報を含めて送信
+      }
+    );
 
     if (response.ok) {
       router.push("/home");
