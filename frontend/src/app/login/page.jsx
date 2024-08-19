@@ -12,14 +12,17 @@ export default function Login() {
     e.preventDefault();
 
     // APIエンドポイントにPOSTリクエストを送信
-    const response = await fetch(process.env.API_ENDPOINT + `/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }), // フォームデータをJSONに変換して送信
-      credentials: "include", // <-- これが重要
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_API_ENDPOINT + `/api/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }), // フォームデータをJSONに変換して送信
+        credentials: "include", // <-- これが重要
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
@@ -36,7 +39,9 @@ export default function Login() {
       <div className="w-full max-w-md p-8 bg-white shadow-xl rounded-lg">
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-2">メールアドレス</label>
+            <label className="block text-gray-700 font-medium mb-2">
+              メールアドレス
+            </label>
             <input
               type="email"
               value={email}
@@ -47,7 +52,9 @@ export default function Login() {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-2">パスワード</label>
+            <label className="block text-gray-700 font-medium mb-2">
+              パスワード
+            </label>
             <input
               type="password"
               value={password}

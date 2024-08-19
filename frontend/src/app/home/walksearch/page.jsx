@@ -12,7 +12,7 @@ export default function WalkListPage() {
   useEffect(() => {
     if (isAuthenticated) {
       // ログインしている場合のみデータを取得
-      fetch(process.env.API_ENDPOINT + "/api/walks", {
+      fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + "/api/walks", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

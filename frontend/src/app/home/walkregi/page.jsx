@@ -17,12 +17,12 @@ export default function WalkRegi() {
     points_required: "",
   });
   const [locations, setLocations] = useState([]);
-  const [userDogs, setUserDogs] = useState(null); 
-  const [userInfo, setUserInfo] = useState(null); 
+  const [userDogs, setUserDogs] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    fetch(`${process.env.API_ENDPOINT}/api/user-info`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user-info`, {
       method: "GET",
       credentials: "include",
     })
@@ -32,12 +32,12 @@ export default function WalkRegi() {
         if (data.dog_number === 0) {
           return;
         }
-        fetch(`${process.env.API_ENDPOINT}/api/locations`)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/locations`)
           .then((response) => response.json())
           .then((data) => setLocations(data))
           .catch((error) => console.error("Error fetching locations:", error));
 
-        fetch(`${process.env.API_ENDPOINT}/api/user-dogs`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user-dogs`, {
           method: "GET",
           credentials: "include",
         })
@@ -90,12 +90,12 @@ export default function WalkRegi() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // 確認ポップアップを表示
     const confirmed = window.confirm("登録しますが良いですか？");
 
     if (confirmed) {
-      fetch(`${process.env.API_ENDPOINT}/api/register-walk`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/register-walk`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

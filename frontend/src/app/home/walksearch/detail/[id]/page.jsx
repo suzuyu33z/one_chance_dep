@@ -19,7 +19,7 @@ export default function WalkDetailPage() {
 
   useEffect(() => {
     if (isAuthenticated && id) {
-      fetch(`${process.env.API_ENDPOINT}/api/check-auth`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/check-auth`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -34,12 +34,12 @@ export default function WalkDetailPage() {
         })
         .catch((error) => console.error("Error fetching user info:", error));
 
-      fetch(`${process.env.API_ENDPOINT}/api/walks/${id}`)
+      fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/walks/${id}`)
         .then((response) => response.json())
         .then((data) => setWalkDetail(data))
         .catch((error) => console.error("Error fetching walk detail:", error));
 
-      fetch(`${process.env.API_ENDPOINT}/api/walks/${id}/messages`)
+      fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/walks/${id}/messages`)
         .then((response) => response.json())
         .then((data) => setMessages(data))
         .catch((error) => console.error("Error fetching messages:", error));
@@ -54,13 +54,16 @@ export default function WalkDetailPage() {
         sender_user_id: userId,
       };
 
-      fetch(`${process.env.API_ENDPOINT}/api/walks/${id}/messages`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(messageData),
-      })
+      fetch(
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/walks/${id}/messages`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(messageData),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           setMessages([...messages, data]);

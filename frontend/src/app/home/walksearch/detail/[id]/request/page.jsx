@@ -12,7 +12,7 @@ export default function WalkSearchDetailRequest() {
 
   useEffect(() => {
     if (isAuthenticated && id) {
-      fetch(`${process.env.API_ENDPOINT}/api/check-auth`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/check-auth`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function WalkSearchDetailRequest() {
       requested_time: walkDetail.time_start,
     };
 
-    fetch(`${process.env.API_ENDPOINT}/api/request_walk`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/request_walk`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -14,14 +14,17 @@ export default function Top() {
     e.preventDefault();
 
     // APIエンドポイントにPOSTリクエストを送信
-    const response = await fetch(process.env.API_ENDPOINT + `/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }), // フォームデータをJSONに変換して送信
-      credentials: "include", // <-- これが重要
-    });
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_API_ENDPOINT + `/api/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }), // フォームデータをJSONに変換して送信
+        credentials: "include", // <-- これが重要
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();

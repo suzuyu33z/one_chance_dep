@@ -15,7 +15,7 @@ export default function Header() {
 
   useEffect(() => {
     // ユーザー情報を取得
-    fetch(`${process.env.API_ENDPOINT}/api/user-info`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/user-info`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -125,22 +125,34 @@ export default function Header() {
           <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
             <ul className="py-1">
               <li>
-                <Link href="/use-points" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/use-points"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   ポイントを使う
                 </Link>
               </li>
               <li>
-                <Link href="/buy-points" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/buy-points"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   ポイント購入
                 </Link>
               </li>
               <li>
-                <Link href="/favorites" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/favorites"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   お気に入り
                 </Link>
               </li>
               <li>
-                <Link href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                <Link
+                  href="/logout"
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                >
                   ログアウト
                 </Link>
               </li>
